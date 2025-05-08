@@ -1,4 +1,4 @@
-# Projeto criado em React Native + TypeScript
+# Projeto (em andamento) React Native + TypeScript
 
 Ao baixar o projeto, instalar dependências necessárias:
 
