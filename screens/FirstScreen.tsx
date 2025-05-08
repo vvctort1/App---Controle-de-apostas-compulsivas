@@ -1,7 +1,8 @@
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { RootStack } from "../types/rotas";
 
-const FirstScreen = () => {
-
+const FirstScreen = ({ navigation }: NativeStackScreenProps<RootStack, "FirstScreen">) => {
     return (
         <View style={styles.container}>
             <View style={styles.container1}>
@@ -9,15 +10,23 @@ const FirstScreen = () => {
                 <Text style={{top: "10%"}}>Seja Bem-Vindo(a) ao App</Text>
             </View>
             <View style={styles.container2}>
-                <TouchableOpacity style={styles.button1}><Text style={styles.text}>Vamos Iniciar</Text></TouchableOpacity>
+                <TouchableOpacity 
+                    style={styles.button1}
+                    onPress={() => navigation.navigate('SecondScreen')}
+                >
+                    <Text style={styles.text}>Vamos Iniciar</Text>
+                </TouchableOpacity>
                 <Text>Já possui conta? Clique no botão abaixo</Text>
-                <TouchableOpacity style={styles.button2}><Text style={styles.text2}>Entrar</Text></TouchableOpacity>
+                <TouchableOpacity 
+                    style={styles.button2}
+                    onPress={() => navigation.navigate('ThirdScreen')}
+                >
+                    <Text style={styles.text2}>Entrar</Text>
+                </TouchableOpacity>
             </View>
         </View>
-
     )
 }
-
 
 const styles = StyleSheet.create({
     container: {
@@ -76,7 +85,6 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontFamily:"Patrick Hand"
     }
-
 })
 
 export default FirstScreen;
