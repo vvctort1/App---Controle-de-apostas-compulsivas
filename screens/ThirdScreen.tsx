@@ -10,6 +10,7 @@ const ThirdScreen = ({navigation}: NativeStackScreenProps<RootStack,"ThirdScreen
             <View style={styles.container1}>
                 <Text style={styles.appName}>AppName</Text>
             </View>
+            <View style={styles.container2}>
             <Text style={styles.text1}>Lorem Ipsum dolor et nam sit</Text>
             <Text style={styles.text2}>Elit ut et dienet</Text>
             <TextInput style={styles.textInputs} placeholder="Lorem ipsum"/>
@@ -17,6 +18,8 @@ const ThirdScreen = ({navigation}: NativeStackScreenProps<RootStack,"ThirdScreen
             <TouchableOpacity style={styles.button1}><Text style={styles.textButton1}>Press</Text></TouchableOpacity>
             <Text style={styles.textQuestion}>Lorem ipsum? Dolor</Text>
             <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}><Text style={styles.textButton2}>Voltar</Text></TouchableOpacity>
+            </View>
+            
         </View>
     )
 }
@@ -25,12 +28,17 @@ const ThirdScreen = ({navigation}: NativeStackScreenProps<RootStack,"ThirdScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#EEE",
+        backgroundColor: "#fff",
     },
     container1: {
-        height: "20%",
+        height: "15%",
         justifyContent: "center",
         alignItems: "center",
+        elevation: 5,
+        backgroundColor: "#fff"
+    },
+    container2:{
+        top: "5%"
     },
     textInputs: {
         borderWidth: 2,
@@ -53,11 +61,12 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     button2: {
-        top: "25%",
+        top: "75%",
         alignItems: "center",
         justifyContent: "center",
     },
     appName: {
+        top: "25%",
         fontFamily:"Patrick Hand",
         fontSize: 22
     },
@@ -86,7 +95,7 @@ const styles = StyleSheet.create({
         color: "#1B1B1B",
         fontSize: 18,
         fontFamily:"Patrick Hand",
-        top: "14%",
+        top: "30%",
         alignSelf: "center"
     }
 })
