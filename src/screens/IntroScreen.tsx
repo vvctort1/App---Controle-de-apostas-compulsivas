@@ -7,7 +7,7 @@ import { RootStack } from "../types/rotas";
 const IntroScreen = ({ navigation }: NativeStackScreenProps<RootStack,"IntroScreen">) => {
     return(
         <View style={styles.container}>
-            <Text style={styles.text}>Você está pronto para começar uma nova fase. Vamos entender como podemos te apoiar melhor.</Text>
+            <Text style={styles.text}>Você está pronto para começar uma{'\n'}  nova fase. Vamos entender como{'\n'}       podemos te apoiar melhor.</Text>
             <Image source={require("../Images/forest.gif")} style={styles.img}/>
             <TouchableOpacity style={styles.button} onPress={() => navigation.push("Question1Screen")}><Text style={styles.textButton}>Continuar</Text></TouchableOpacity>
         </View>
@@ -18,14 +18,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
-        justifyContent: "center"
+        alignItems: "center"
     },
     text: {
         fontFamily: "Patrick Hand",
         fontSize: 22,
-        marginBottom: "15%",
-        alignSelf: "center",
-        marginHorizontal: "9%",
+        marginTop: "58%",
+        marginBottom: "14%",
     },
     img: {
         width: 247,

@@ -9,4 +9,7 @@ export type RootStack = {
     Question1Screen: undefined;
     Question2Screen: undefined;
     Question3Screen: undefined;
+    Question4Screen: undefined;
+    Question5Screen: undefined;
+    ReadyScreen: undefined;
 }

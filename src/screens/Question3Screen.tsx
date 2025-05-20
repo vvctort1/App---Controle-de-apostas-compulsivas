@@ -41,9 +41,7 @@ const Question3Screen = ({ navigation }: NativeStackScreenProps<RootStack, "Ques
 
     return (
         <View style={styles.container}>
-            <View style={styles.container2}>
-                <Text style={styles.text}>Com que frequência você aposta</Text>
-                <Text style={styles.text2}>atualmente?</Text>
+                <Text style={styles.text}>Com que frequência você aposta{'\n'}atualmente?</Text>
                 {checkboxes.map((checkboxes) => (
                     <TouchableOpacity
                         key={checkboxes.id}
@@ -58,15 +56,13 @@ const Question3Screen = ({ navigation }: NativeStackScreenProps<RootStack, "Ques
                         <Text style={styles.checkboxText}>  {checkboxes.label}</Text>
                     </TouchableOpacity>
                 ))}
-                <Text style={styles.text3}>Nos dias que você aposta, quantas</Text>
-                <Text style={styles.text}>apostas você realiza em média?</Text>
+                <Text style={styles.text2}>Nos dias que você aposta, quantas{'\n'}apostas você realiza em média?</Text>
                 <View style={styles.countContainer}>
                     <TouchableOpacity style={styles.countButton} onPress={() => SubContador(contador)}><Text style={styles.symbolCountButton}>—</Text></TouchableOpacity>
                     <Text style={styles.textCountButton}>{contador}</Text>
                     <TouchableOpacity style={styles.countButton} onPress={() => AddContador(contador)}><Text style={styles.symbolCountButton}>+</Text></TouchableOpacity>
                 </View>
-            </View>
-            <TouchableOpacity style={styles.button}><Text style={styles.textButton}>Próximo</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Question4Screen")}><Text style={styles.textButton}>Próximo</Text></TouchableOpacity>
         </View>
     )
 }
@@ -76,33 +72,25 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#fff",
     },
-    container2:{
-        top: "5%"
-    },
     text: {
         fontFamily: "Patrick Hand",
         fontSize: 26,
         color: "1B1B1B",
-        alignSelf: "center"
-    },
-    text2: {
-        fontFamily: "Patrick Hand",
-        fontSize: 26,
-        color: "#1B1B1B",
-        left: "15%",
-        marginBottom: "10%"
-    },
-    text3:{
-        fontFamily: "Patrick Hand",
-        fontSize: 26,
-        color: "#1B1B1B",
         alignSelf: "center",
-        marginTop: "5%"
+        marginBottom: "15%",
+        top: "4%"
+    },
+    text2:{
+        fontFamily: "Patrick Hand",
+        fontSize: 26,
+        color: "1B1B1B",
+        alignSelf: "center",
+        top: "5%"
     },
     checkboxContainer: {
         flexDirection: "row",
         alignItems: "center",
-        left: "12%",
+        left: "14%",
         marginBottom: "5%",
     },
     checkboxText: {
@@ -112,7 +100,7 @@ const styles = StyleSheet.create({
     },
     countContainer: {
         flexDirection: "row",
-        marginTop: "13%",
+        marginTop: "15%",
         alignItems: "center",
         justifyContent: "center"
     },

@@ -11,6 +11,9 @@ import Question1Screen from './src/screens/Question1Screen';
 import CadastroScreen from './src/screens/CadastroScreen';
 import Question2Screen from './src/screens/Question2Screen';
 import Question3Screen from './src/screens/Question3Screen';
+import Question4Screen from './src/screens/Question4Screen';
+import Question5Screen from './src/screens/Question5Screen';
+import ReadyScreen from './src/screens/ReadyScreen';
 
 const Stack = createStackNavigator<RootStack>();
 
@@ -49,6 +52,15 @@ export default function App() {
         }}/>
         <Stack.Screen name="Question3Screen" component={Question3Screen} options={{
           title: ""
+        }}/>
+        <Stack.Screen name="Question4Screen" component={Question4Screen} options={{
+          title: ""
+        }}/>
+        <Stack.Screen name="Question5Screen" component={Question5Screen} options={{
+          title: ""
+        }}/>
+        <Stack.Screen name="ReadyScreen" component={ReadyScreen} options={{
+          headerShown: false
         }}/>
       </Stack.Navigator>
     </NavigationContainer>

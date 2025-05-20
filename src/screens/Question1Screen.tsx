@@ -27,7 +27,6 @@ const Question1Screen = ({ navigation }: NativeStackScreenProps<RootStack, "Ques
 
     return (
         <View style={styles.container}>
-            <View style={styles.container2}>
                 <Text style={styles.text}>Qual é o seu objetivo com este app?</Text>
                 <Text style={styles.subText}>Selecione uma das opções abaixo.</Text>
                 {checkboxes.map((checkboxes) => (
@@ -44,8 +43,6 @@ const Question1Screen = ({ navigation }: NativeStackScreenProps<RootStack, "Ques
                         <Text style={styles.checkboxText}>  {checkboxes.label}</Text>
                     </TouchableOpacity>
                 ))}
-                
-            </View>
             <TouchableOpacity style={styles.button} onPress={() => navigation.push("Question2Screen")}><Text style={styles.textButton}>Próximo</Text></TouchableOpacity>
         </View>
     )
@@ -56,21 +53,20 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#fff",
     },
-    container2:{
-        top: "5%"
-    },
     text: {
         fontFamily: "Patrick Hand",
         fontSize: 26,
         color: "1B1B1B",
-        alignSelf: "center"
+        alignSelf: "center",
+        top: "4%"
     },
     subText: {
         fontFamily: "Patrick Hand",
         fontSize: 17,
         color: "#929292",
         left: "12%",
-        marginBottom: "10%"
+        marginBottom: "15%",
+        top: "4%"
     },
     checkboxContainer: {
         flexDirection: "row",
