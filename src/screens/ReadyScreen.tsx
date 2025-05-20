@@ -5,13 +5,13 @@ import { RootStack } from "../types/rotas";
 
 
 
-const ReadyScreen = ({ navigation }: NativeStackScreenProps<RootStack,"ReadyScreen">) => {
+const ReadyScreen = ({ navigation }: NativeStackScreenProps<RootStack, "ReadyScreen">) => {
 
     const [modalVisible, setModalVisible] = useState(true);
 
     return (
-        <View style={{flex: 1, alignItems: "center",backgroundColor: modalVisible ? "rgba(0,0,0,0.5)" : "#fff" }}>
-            <Modal animationType="slide" transparent={true} visible={modalVisible}>
+        <View style={{ flex: 1, alignItems: "center", backgroundColor: modalVisible ? "rgba(0,0,0,0.5)" : "#fff" }}>
+            <Modal animationType="fade" transparent={true} visible={modalVisible}>
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
                         <Text style={styles.modalText}>Deseja receber lembretes e dicas{'\n'}para te ajudar nos momentos mais{'\n'}difíceis?</Text>
@@ -39,6 +39,57 @@ const ReadyScreen = ({ navigation }: NativeStackScreenProps<RootStack,"ReadyScre
 }
 
 const styles = StyleSheet.create({
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalView: {
+        width: "80%",
+        height: "30%",
+        margin: 20,
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 20,
+            height: 40,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 100,
+    },
+    modalText: {
+        fontFamily: "Patrick Hand",
+        fontSize: 20
+    },
+
+    modalButtonContainer: {
+        flexDirection: "row",
+        marginTop: "25%"
+    },
+    buttonModalNo: {
+        borderRadius: 8,
+        padding: 10,
+        elevation: 6,
+        backgroundColor: '#fff',
+        marginHorizontal: "5%"
+    },
+    txtModalButtonNo: {
+        color: "#1B1B1B"
+    },
+    buttonModalYes: {
+        borderRadius: 8,
+        padding: 10,
+        elevation: 6,
+        backgroundColor: '#1B1B1B',
+        marginHorizontal: "5%"
+    },
+    txtModalButtonYes: {
+        color: "#fff"
+    },
     txt: {
         fontFamily: "Patrick Hand",
         fontSize: 22,
@@ -67,56 +118,6 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontSize: 22,
         fontFamily: "Patrick Hand"
-    },
-    modalText: {
-        fontFamily: "Patrick Hand",
-        fontSize: 20
-    },
-    modalButtonContainer: {
-        flexDirection: "row",
-        marginTop: "25%"
-    },
-    buttonModalNo: {
-        borderRadius: 8,
-        padding: 10,
-        elevation: 6,
-        backgroundColor: '#fff',
-        marginHorizontal: "5%"
-    },
-    buttonModalYes: {
-        borderRadius: 8,
-        padding: 10,
-        elevation: 6,
-        backgroundColor: '#1B1B1B',
-        marginHorizontal: "5%"
-    },
-    txtModalButtonYes: {
-        color: "#fff"
-    },
-    txtModalButtonNo: {
-        color: "#1B1B1B"
-    },
-    centeredView: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    modalView: {
-        width: "80%",
-        height: "30%",
-        margin: 20,
-        backgroundColor: '#fff',
-        borderRadius: 20,
-        padding: 35,
-        alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 20,
-            height: 40,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 100,
     },
 })
 
