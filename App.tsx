@@ -1,21 +1,8 @@
-import { StyleSheet } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { useFonts, PatrickHand_400Regular } from '@expo-google-fonts/patrick-hand';
+import Stack from './src/navigations/Stack';
 
-import FirstScreen from './src/screens/FirstScreen';
-import { RootStack } from './src/types/rotas';
-import LoginScreen from './src/screens/LoginScreen';
-import IntroScreen from './src/screens/IntroScreen';
-import Question1Screen from './src/screens/Question1Screen';
-import CadastroScreen from './src/screens/CadastroScreen';
-import Question2Screen from './src/screens/Question2Screen';
-import Question3Screen from './src/screens/Question3Screen';
-import Question4Screen from './src/screens/Question4Screen';
-import Question5Screen from './src/screens/Question5Screen';
-import ReadyScreen from './src/screens/ReadyScreen';
-
-const Stack = createStackNavigator<RootStack>();
 
 export default function App() {
   // Carregamento da fonte
@@ -29,47 +16,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator 
-        initialRouteName="FirstScreen"
-      >
-        <Stack.Screen name="FirstScreen" component={FirstScreen} options={
-          {headerShown: false}
-        }/>
-        <Stack.Screen name="CadastroScreen" component={CadastroScreen} options={
-          {headerShown: false}
-        }/>
-        <Stack.Screen name="LoginScreen" component={LoginScreen} options={
-          {headerShown: false}
-        }/>
-        <Stack.Screen name="IntroScreen" component={IntroScreen}options={
-          {headerShown: false}
-        }/>
-        <Stack.Screen name="Question1Screen" component={Question1Screen} options={{
-          title: ""
-        }}/>
-        <Stack.Screen name="Question2Screen" component={Question2Screen} options={{
-          title: ""
-        }}/>
-        <Stack.Screen name="Question3Screen" component={Question3Screen} options={{
-          title: ""
-        }}/>
-        <Stack.Screen name="Question4Screen" component={Question4Screen} options={{
-          title: ""
-        }}/>
-        <Stack.Screen name="Question5Screen" component={Question5Screen} options={{
-          title: ""
-        }}/>
-        <Stack.Screen name="ReadyScreen" component={ReadyScreen} options={{
-          headerShown: false
-        }}/>
-      </Stack.Navigator>
+      <Stack/>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff'
-  },
-});

@@ -12,4 +12,20 @@ export type RootStack = {
     Question4Screen: undefined;
     Question5Screen: undefined;
     ReadyScreen: undefined;
+    BottomT: undefined;
+}
+
+export type RootBottomTabs = {
+    Home: undefined;
+    Progress: undefined;
+    Notes: undefined;
+    Account: undefined;
+}
+
+
+export type RootTopTabs = {
+    Summary: undefined;
+    Calendar: undefined;
+    Savings: undefined;
+    Urges: undefined;
 }
