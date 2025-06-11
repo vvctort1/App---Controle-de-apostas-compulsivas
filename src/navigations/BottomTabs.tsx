@@ -3,12 +3,13 @@ import { RootBottomTabs } from "../types/rotas";
 import MaterialTopTab from "./MaterialTopTab";
 import AccountScreen from "../screens/telasDentroDoApp/AccountScreen";
 import NotesScreen from "../screens/telasDentroDoApp/NotesScreen";
-import { Modal, TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import { Modal, TouchableOpacity, View, Text, StyleSheet, Image } from "react-native";
 import React, { useState } from "react";
 import { faHome, faStickyNote, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { useRoute } from "@react-navigation/native";
 import { User } from "../types/User";
+import GradientButton from "../gradient/GradientButton";
 
 
 
@@ -26,18 +27,14 @@ const BottomTabs = () => {
             <Modal animationType="fade" transparent={true} visible={modalVisible} navigationBarTranslucent={true} statusBarTranslucent={true}>
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <Text style={styles.modalText}>Deseja receber lembretes e dicas{'\n'}para te ajudar nos momentos mais{'\n'}difíceis?</Text>
+                        <Text style={styles.modalText}>Deseja receber lembretes e dicas para te ajudar nos momentos mais difíceis?</Text>
                         <View style={styles.modalButtonContainer}>
                             <TouchableOpacity
                                 style={styles.buttonModalNo}
                                 onPress={() => setModalVisible(!modalVisible)}>
                                 <Text style={styles.txtModalButtonNo}>Agora não</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity
-                                style={styles.buttonModalYes}
-                                onPress={() => setModalVisible(!modalVisible)}>
-                                <Text style={styles.txtModalButtonYes}>Quero receber</Text>
-                            </TouchableOpacity>
+                            <GradientButton title="Quero receber" onPress={() => setModalVisible(!modalVisible)} style={styles.buttonModalYes}/>
                         </View>
 
                     </View>
@@ -47,6 +44,8 @@ const BottomTabs = () => {
                 headerTitle: "",
                 tabBarLabelStyle: { fontFamily: "Patrick Hand", fontSize: 14 },
                 tabBarActiveTintColor: "#1B1B1B",
+                headerLeft: ()=> <Image source={require("../Images/logo.png")} style={{height: "45%", width: "20%", marginLeft: "13%"}}/>,
+                headerRight: () => (<TouchableOpacity><Image source={require("../Images/setting.png")} style={{marginRight: "18%", height: "42%", width: "55%"}}/></TouchableOpacity>)
             }}>
                 <Tab.Screen name="Home" component={MaterialTopTab} initialParams={{user: user}} options={{
                     tabBarIcon: ({ color, size }) => (
@@ -95,33 +94,34 @@ const styles = StyleSheet.create({
         borderWidth: 2
     },
     modalText: {
-        fontFamily: "Patrick Hand",
+        fontFamily: "Inter",
         fontSize: 20
     },
 
     modalButtonContainer: {
-        flexDirection: "row",
-        marginTop: "25%"
+        marginTop: "5%",
+        height: "70%",
+        width: "80%"
     },
     buttonModalNo: {
         borderRadius: 8,
         padding: 10,
         elevation: 6,
         backgroundColor: '#fff',
-        marginHorizontal: "5%"
+        marginHorizontal: "15%",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: "10%"
     },
     txtModalButtonNo: {
-        color: "#1B1B1B"
+        color: "#1B1B1B",
+        fontFamily: "Inter",
+        fontWeight: 800
     },
     buttonModalYes: {
-        borderRadius: 8,
-        padding: 10,
+        height: "30%",
         elevation: 6,
-        backgroundColor: '#1B1B1B',
-        marginHorizontal: "5%"
-    },
-    txtModalButtonYes: {
-        color: "#fff"
+        marginTop: "10%"
     },
 })
 

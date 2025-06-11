@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontFamily: "Inter",
         lineHeight: 24,
-        alignSelf: "center"
+        alignSelf: "center",
+        fontWeight: 500
     },
     img2: {
         alignSelf: "center",

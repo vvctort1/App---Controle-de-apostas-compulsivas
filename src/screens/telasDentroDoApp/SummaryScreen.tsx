@@ -1,78 +1,110 @@
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { RootTopTabs } from "../../types/rotas";
 import { useRoute } from "@react-navigation/native";
 import { User } from "../../types/User";
+import { LinearGradient } from "expo-linear-gradient";
+import GradientWord from "../../gradient/GradientWord";
 
 
 
 
 const SummaryScreen = () => {
 
-    const route = useRoute();
-    const { user } = route.params as {user: User};
 
-    return(
-        <View style={styles.container}>
+    const route = useRoute();
+    const { user } = route.params as { user: User };
+
+    return (
+        <LinearGradient style={styles.container} colors={['#BCE0514D', '#ABD75953']} start={{ x: 0, y: 1 }} end={{ x: 1, y: 1 }}>
             <View style={styles.container2}>
             </View>
+
             <View style={styles.card}>
-                <Text style={styles.titutoTxtCard}>Olá, {user.Nome}</Text>
-                <Text style={styles.txtCard}>Você está a XX dias sem apostar.</Text>
-                <Text style={styles.txtCardPeriodo}>12/23 - 01/03</Text>
+                <View style={styles.containerGradient}>
+                    <Text style={styles.titutoTxtCard}>Olá, </Text>
+                    <GradientWord style={styles.titutoTxtCard}>{user.Nome}</GradientWord>
+                </View>
+                <View style={styles.containerGradient}>
+                    <Text style={styles.txtCard}>Você está a </Text>
+                    <GradientWord style={styles.txtCard}>XX</GradientWord>
+                    <Text style={styles.txtCard}> dias sem apostar.</Text>
+                </View>
+                <View style={styles.periodoContainer}>
+                    <Image source={require("../../Images/calender.png")} />
+                    <Text style={styles.txtCardPeriodo}> 12/23 - 01/03</Text>
+                </View>
             </View>
             <View style={styles.container3}>
                 <View style={styles.container4}>
-                    <Text style={styles.txtIcon}>Check-in</Text>
-                    <View style={styles.divisoria}></View>
-                    <Text style={styles.txtIcon}>Log Urge</Text>
-                    <View style={styles.divisoria}></View>
-                    <Text style={styles.txtIcon}>Reset</Text>
-                </View>
-                <Text style={styles.tituloTxt}>Motivação</Text>
-                <View style={styles.userMotivation}><Text style={{fontFamily: "Patrick Hand", fontSize: 24, color: "#1B1B1B"}}>Família</Text></View>
-                <View style={styles.container5}>
-                    <View style={styles.imgContainer}>
-                        <View><FontAwesomeIcon icon={faImage}/></View>
-                        <Text style={styles.imgText}>Lorem {'\n'}Ipsum dior</Text>
+                    <View style={styles.containerIcone}>
+                        <TouchableOpacity style={{ alignItems: "center" }}>
+                            <Image source={require("../../Images/checkin.png")} />
+                            <Text style={styles.txtIcon}>Check-in</Text>
+                        </TouchableOpacity>
                     </View>
-                    <View style={styles.imgContainer}>
-                        <View><FontAwesomeIcon icon={faImage}/></View>
-                        <Text style={styles.imgText}>Lorem {'\n'}Ipsum dior</Text>
+                    <View style={styles.divisoria}></View>
+                    <View style={styles.containerIcone}>
+                        <TouchableOpacity style={{ alignItems: "center" }}>
+                            <Image source={require("../../Images/impulso.png")} />
+                            <Text style={styles.txtIcon}>Impulso</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.divisoria}></View>
+                    <View style={styles.containerIcone}>
+                        <TouchableOpacity style={{ alignItems: "center" }}>
+                            <Image source={require("../../Images/recomecar.png")}/>
+                            <Text style={styles.txtIcon}>Recomeçar</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
-                <Text style={styles.tituloTxt}>Economias</Text>
-                <View style={styles.userEconomy}><Text style={{fontFamily: "Patrick Hand", fontSize: 24, color: "#1B1B1B"}}>R$ 100,00</Text></View>
+                <Text style={styles.tituloTxt}>Motivos para largar as apostas</Text>
+                <LinearGradient style={styles.bordGradient} colors={['#BCE051', '#4DA764']}>
+                    <View style={styles.userMotivation}>
+                        <GradientWord style={{ fontFamily: "Inter", fontWeight: 700, fontSize: 24, }}>Minha família</GradientWord>
+                    </View>
+                </LinearGradient>
+                <TouchableOpacity style={styles.btnAdd}>
+                    <Text style={styles.txtAdd}>Adicionar outro motivo</Text>
+                </TouchableOpacity>
+                <Text style={styles.tituloTxt}>Já economizei</Text>
+                <LinearGradient style={styles.bordGradient} colors={['#BCE051', '#4DA764']}>
+                    <View style={styles.userEconomy}>
+                        <GradientWord style={{ fontFamily: "Inter", fontWeight: 700, fontSize: 24, }}>R$ 1000,00</GradientWord>
+                    </View>
+                </LinearGradient>
             </View>
-        </View>
+        </LinearGradient>
     )
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         alignItems: "center",
-        backgroundColor: "#eee",
     },
     container2: {
-        backgroundColor: "#eee",
         height: "10%",
         width: "100%",
     },
-    container3:{
+    container3: {
         backgroundColor: "#fff",
         width: "100%",
         height: "90%",
-        marginTop: "5%",
+        marginTop: "15%",
+
     },
     container4: {
-        marginTop: "8%",
         flexDirection: "row",
         justifyContent: "space-around",
         paddingHorizontal: "17%",
-        paddingTop: "24%"
+        paddingTop: "30%",
+        height: "35%"
+    },
+    containerIcone: {
+        alignItems: "center"
     },
     container5: {
         flexDirection: "row",
@@ -84,24 +116,30 @@ const styles = StyleSheet.create({
         height: "22%",
         borderRadius: 10,
         padding: "5%",
-        marginTop: "3%",
+        marginTop: "15%",
         elevation: 5,
         position: 'absolute',
         zIndex: 1,
     },
+    containerGradient: {
+        flexDirection: "row"
+    },
     titutoTxtCard: {
-        fontFamily: "Patrick Hand",
+        fontFamily: "Inter",
         fontSize: 28,
         marginBottom: "3%"
     },
-    txtCard:{
-        fontFamily: "Patrick Hand",
+    txtCard: {
+        fontFamily: "Inter",
         fontSize: 18,
         marginBottom: "7%"
     },
-    txtCardPeriodo:{
-        fontFamily: "Patrick Hand",
-        fontSize: 14
+    periodoContainer: {
+        flexDirection: "row"
+    },
+    txtCardPeriodo: {
+        fontFamily: "Inter",
+        fontSize: 14,
     },
     txtIcon: {
         marginTop: "15%"
@@ -112,52 +150,47 @@ const styles = StyleSheet.create({
         backgroundColor: "#eee"
     },
     tituloTxt: {
-        fontSize: 28,
-        fontFamily: "Patrick Hand",
-        marginTop: "8%",
-        marginLeft: "6%"
+        fontSize: 22,
+        fontFamily: "Inter",
+        marginLeft: "6%",
+        fontWeight: 700
     },
     userMotivation: {
         borderWidth: 3,
-        borderColor: "#1B1B1B",
-        marginHorizontal: "6%",
-        borderRadius: 8,
-        marginTop: "4%",
-        height: 48,
+        height: "100%",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: "#FFF",
+        borderColor: "transparent",
+        borderRadius: 8
+    },
+    bordGradient: {
+        marginTop: "4%",
+        borderRadius: 8,
+        height: "10%",
+        marginHorizontal: "6%",
+        padding: "0.8%"
+    },
+    btnAdd: {
+        marginBottom: "16%",
+        marginTop: "2%",
+        marginLeft: "6%"
+    },
+    txtAdd: {
+        fontSize: 14,
+        fontFamily: "Inter",
+        fontWeight: 500,
+        color: "#337581"
     },
     userEconomy: {
         borderWidth: 3,
-        borderColor: "#1B1B1B",
-        marginHorizontal: "6%",
+        borderColor: "transparent",
         borderRadius: 8,
-        marginTop: "4%",
-        height: 48,
+        height: "100%",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: "#FFF"
     },
-    imgContainer: {
-        flexDirection: "row",
-        height: 70,
-        width: "38%",
-        borderStyle: "dotted",
-        borderWidth: 2,
-        borderRadius: 8,
-        alignItems: "center",
-        justifyContent: "space-around",
-        marginTop: "10%"
-    },
-    img: {
-        height: "90%",
-        width: "45%",
-        borderRadius: 8,
-    },
-    imgText: {
-        fontFamily: "Patrick Hand",
-        fontSize: 14,
-        marginRight: "7%"
-    }
 })
 
 export default SummaryScreen;
