@@ -1,5 +1,5 @@
 import { LinearGradient } from "expo-linear-gradient";
-import { Text, View, StyleSheet, ProgressBarAndroidBase } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import GradientWord from "../../gradient/GradientWord";
 
 

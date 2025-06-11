@@ -1,8 +1,5 @@
-import { faImage } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { ImageBackground, StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import { RootTopTabs } from "../../types/rotas";
+
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { User } from "../../types/User";
 import { LinearGradient } from "expo-linear-gradient";
