@@ -3,11 +3,14 @@ import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStack } from "../types/rotas";
+import { RootStack } from "../../types/rotas";
+import GradientButton from "../../gradient/GradientButton";
 
 
 
-const Question2Screen = ({ navigation }: NativeStackScreenProps<RootStack,"Question2Screen"> ) => {
+const Question2Screen = ({ navigation, route }: NativeStackScreenProps<RootStack,"Question2Screen"> ) => {
+
+    const { user } = route.params;
 
     const [checkboxes, setCheckboxes] = useState([
         { id: 1, label: "Esportiva", isChecked: false, color: "#1B1B1B" },
@@ -41,7 +44,7 @@ const Question2Screen = ({ navigation }: NativeStackScreenProps<RootStack,"Quest
                     </TouchableOpacity>
                 ))}
                 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.push("Question3Screen")}><Text style={styles.textButton}>Próximo</Text></TouchableOpacity>
+            <GradientButton title="Continuar" onPress={() => navigation.navigate("Question3Screen", {user:user})} style={styles.btnContinuar}/>
         </View>
     )
 }
@@ -77,21 +80,11 @@ const styles = StyleSheet.create({
         fontSize: 22,
         color: "1B1B1B"
     },
-    button:{
-        backgroundColor: "#1B1B1B",
-        borderRadius: 8,
-        height: 52,
-        width: 278,
-        alignSelf: "center",
-        alignItems: "center",
-        justifyContent: "center",
+    btnContinuar: {
+        width: "85%",
+        marginTop: "144%",
         position: "absolute",
-        bottom: "15%"
-    },
-    textButton: {
-        color: "#fff",
-        fontSize: 22,
-        fontFamily:"Patrick Hand"
+
     }
 })
 

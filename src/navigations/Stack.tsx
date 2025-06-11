@@ -1,16 +1,18 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { RootStack } from "../types/rotas";
-import FirstScreen from "../screens/FirstScreen";
-import CadastroScreen from "../screens/CadastroScreen";
-import LoginScreen from "../screens/LoginScreen";
-import IntroScreen from "../screens/IntroScreen";
-import Question1Screen from "../screens/Question1Screen";
-import Question2Screen from "../screens/Question2Screen";
-import Question3Screen from "../screens/Question3Screen";
-import Question4Screen from "../screens/Question4Screen";
-import Question5Screen from "../screens/Question5Screen";
-import ReadyScreen from "../screens/ReadyScreen";
+import FirstScreen from "../screens/telasIniciais/FirstScreen";
+import CadastroScreen from "../screens/telasIniciais/CadastroScreen";
+import LoginScreen from "../screens/telasIniciais/LoginScreen";
+import Question2Screen from "../screens/telasQuestionarios/Question2Screen";
+import ReadyScreen from "../screens/telasQuestionarios/ReadyScreen";
 import BottomTabs from "./BottomTabs";
+import IntroScreen from "../screens/telasQuestionarios/IntroScreen";
+import Question1Screen from "../screens/telasQuestionarios/Question1Screen";
+import Question3Screen from "../screens/telasQuestionarios/Question3Screen";
+import Question4Screen from "../screens/telasQuestionarios/Question4Screen";
+import Question5Screen from "../screens/telasQuestionarios/Question5Screen";
+import { Image } from "react-native";
+import AutorizacaoScreen from "../screens/telasQuestionarios/AutorizacaoScreen";
 
 
 
@@ -19,7 +21,7 @@ const InternalStack = createStackNavigator<RootStack>()
 const Stack = () => {
     return(
         <InternalStack.Navigator 
-        initialRouteName="BottomT"
+        initialRouteName="FirstScreen"
         >
         <InternalStack.Screen name="FirstScreen" component={FirstScreen} options={
           {headerShown: false}
@@ -34,19 +36,22 @@ const Stack = () => {
           {headerShown: false}
         }/>
         <InternalStack.Screen name="Question1Screen" component={Question1Screen} options={{
-          title: ""
+          headerTitle: () => <Image source={require("../Images/logo.png")}/>, headerTitleAlign: "center"
         }}/>
         <InternalStack.Screen name="Question2Screen" component={Question2Screen} options={{
-          title: ""
+          headerTitle: () => <Image source={require("../Images/logo.png")}/>, headerTitleAlign: "center"
         }}/>
         <InternalStack.Screen name="Question3Screen" component={Question3Screen} options={{
-          title: ""
+          headerTitle: () => <Image source={require("../Images/logo.png")}/>, headerTitleAlign: "center"
         }}/>
         <InternalStack.Screen name="Question4Screen" component={Question4Screen} options={{
-          title: ""
+          headerTitle: () => <Image source={require("../Images/logo.png")}/>, headerTitleAlign: "center"
         }}/>
         <InternalStack.Screen name="Question5Screen" component={Question5Screen} options={{
-          title: ""
+          headerTitle: () => <Image source={require("../Images/logo.png")}/>, headerTitleAlign: "center"
+        }}/>
+        <InternalStack.Screen name="AutorizacaoScreen" component={AutorizacaoScreen} options={{
+          headerShown: false
         }}/>
         <InternalStack.Screen name="ReadyScreen" component={ReadyScreen} options={{
           headerShown: false

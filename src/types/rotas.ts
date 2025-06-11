@@ -4,27 +4,27 @@ import { User } from "./User";
 export type RootStack = {
     FirstScreen: undefined;
     CadastroScreen: undefined;
-    LoginScreen: { user: User };
-    IntroScreen: undefined;
-    Question1Screen: undefined;
-    Question2Screen: undefined;
-    Question3Screen: undefined;
-    Question4Screen: undefined;
-    Question5Screen: undefined;
-    ReadyScreen: undefined;
-    BottomT: undefined;
+    LoginScreen: undefined;
+    IntroScreen: {user: User};
+    Question1Screen: {user: User};
+    Question2Screen: {user: User};
+    Question3Screen: {user: User};
+    Question4Screen: {user: User};
+    Question5Screen: {user: User};
+    AutorizacaoScreen: {user: User};
+    ReadyScreen: {user: User};
+    BottomT: {user: User};
 }
 
 export type RootBottomTabs = {
-    Home: undefined;
-    Progress: undefined;
+    Home: {user: User};
     Notes: undefined;
     Account: undefined;
 }
 
 
 export type RootTopTabs = {
-    Summary: undefined;
+    Summary: {user: User};
     Calendar: undefined;
     Savings: undefined;
     Urges: undefined;

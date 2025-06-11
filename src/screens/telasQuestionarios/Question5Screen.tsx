@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStack } from "../types/rotas";
+import { RootStack } from "../../types/rotas";
+import GradientButton from "../../gradient/GradientButton";
 
-const Question5Screen = ( { navigation }: NativeStackScreenProps<RootStack,"Question5Screen">) => {
+const Question5Screen = ( { navigation,route }: NativeStackScreenProps<RootStack,"Question5Screen">) => {
+
+    const { user } = route.params;
 
     const [checkboxes, setCheckboxes] = useState([
         { id: 1, label: "Saúde mental", isChecked: false, color: "#1B1B1B" },
@@ -41,7 +44,7 @@ const Question5Screen = ( { navigation }: NativeStackScreenProps<RootStack,"Ques
                 </TouchableOpacity>
             ))}
             <TextInput multiline={true} placeholder="Quero parar porque..." style={styles.txtInputArea} numberOfLines={3} textAlignVertical="top"/>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("ReadyScreen")}><Text style={styles.textButton}>Próximo</Text></TouchableOpacity>
+            <GradientButton title="Continuar" onPress={() => navigation.navigate("AutorizacaoScreen", {user:user})} style={styles.btnContinuar}/>
         </View>
     )
 }
@@ -88,21 +91,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
         padding: 15
     },
-    button:{
-        backgroundColor: "#1B1B1B",
-        borderRadius: 8,
-        height: 52,
-        width: 278,
-        alignSelf: "center",
-        alignItems: "center",
-        justifyContent: "center",
+    btnContinuar: {
+        width: "85%",
+        marginTop: "144%",
         position: "absolute",
-        bottom: "15%"
-    },
-    textButton: {
-        color: "#fff",
-        fontSize: 22,
-        fontFamily:"Patrick Hand"
     }
 })
 

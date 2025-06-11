@@ -3,11 +3,14 @@ import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStack } from "../types/rotas";
+import { RootStack } from "../../types/rotas";
+import GradientButton from "../../gradient/GradientButton";
 
 
 
-const Question3Screen = ({ navigation }: NativeStackScreenProps<RootStack, "Question3Screen">) => {
+const Question3Screen = ({ navigation, route }: NativeStackScreenProps<RootStack, "Question3Screen">) => {
+
+    const { user } = route.params;
 
     const [checkboxes, setCheckboxes] = useState([
         { id: 1, label: "Raramente", isChecked: false, color: "#1B1B1B" },
@@ -62,7 +65,7 @@ const Question3Screen = ({ navigation }: NativeStackScreenProps<RootStack, "Ques
                     <Text style={styles.textCountButton}>{contador}</Text>
                     <TouchableOpacity style={styles.countButton} onPress={() => AddContador(contador)}><Text style={styles.symbolCountButton}>+</Text></TouchableOpacity>
                 </View>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Question4Screen")}><Text style={styles.textButton}>Próximo</Text></TouchableOpacity>
+            <GradientButton title="Continuar" onPress={() => navigation.navigate("Question4Screen", {user:user})} style={styles.btnContinuar}/>
         </View>
     )
 }
@@ -120,21 +123,10 @@ const styles = StyleSheet.create({
     symbolCountButton: {
         fontWeight: "bold",
     },
-    button:{
-        backgroundColor: "#1B1B1B",
-        borderRadius: 8,
-        height: 52,
-        width: 278,
-        alignSelf: "center",
-        alignItems: "center",
-        justifyContent: "center",
+    btnContinuar: {
+        width: "85%",
+        marginTop: "144%",
         position: "absolute",
-        bottom: "15%"
-    },
-    textButton: {
-        color: "#fff",
-        fontSize: 22,
-        fontFamily:"Patrick Hand"
     }
 })
 
