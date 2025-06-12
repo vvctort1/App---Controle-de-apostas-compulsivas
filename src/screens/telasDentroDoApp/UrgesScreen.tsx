@@ -8,7 +8,7 @@ import GradientWord from "../../gradient/GradientWord";
 
 const UrgesScreen = () => {
     return (
-        <LinearGradient style={styles.container} colors={["#75B3726D", "#4DA7646E"]} start={{ x: 0, y: 1 }} end={{ x: 1, y: 1 }}>
+        <LinearGradient style={styles.container} colors={['#4DA7646E', '#BCE0514D']} start={{ x: 0, y: 1 }} end={{ x: 1, y: 1 }}>
             <View style={styles.container2}></View>
             <View style={styles.cardUrges}>
                 <GradientButton title="Estou com vontade de apostar" onPress={() => { }} style={styles.btn} />

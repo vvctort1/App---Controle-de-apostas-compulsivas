@@ -20,7 +20,7 @@ const SummaryScreen = ({ navigation }:NativeStackScreenProps<RootStack>) => {
 
 
     return (
-        <LinearGradient style={styles.container} colors={['#BCE0514D', '#ABD75953']} start={{ x: 0, y: 1 }} end={{ x: 1, y: 1 }}>
+        <LinearGradient style={styles.container} colors={['#BCE0514D', '#4DA7646E']} start={{ x: 0, y: 1 }} end={{ x: 1, y: 1 }}>
             <View style={styles.container2}>
             </View>
 
@@ -49,7 +49,7 @@ const SummaryScreen = ({ navigation }:NativeStackScreenProps<RootStack>) => {
                     </View>
                     <View style={styles.divisoria}></View>
                     <View style={styles.containerIcone}>
-                        <TouchableOpacity style={{ alignItems: "center" }}>
+                        <TouchableOpacity style={{ alignItems: "center" }} onPress={() => navigation.navigate("ImpulsoScreen")}>
                             <Image source={require("../../Images/impulso.png")} />
                             <Text style={styles.txtIcon}>Impulso</Text>
                         </TouchableOpacity>

@@ -60,7 +60,7 @@ export default function CalendarScreen() {
   const { marcacoes, dias } = gerarDiasLimpos();
 
   return (
-    <LinearGradient style={styles.container} colors={["#ABD75953", "#90C56660"]} start={{ x: 0, y: 1 }} end={{ x: 1, y: 1 }}>
+    <LinearGradient style={styles.container} colors={['#4DA7646E', '#BCE0514D']} start={{ x: 0, y: 1 }} end={{ x: 1, y: 1 }}>
       <View style={styles.container2}></View>
       <View style={styles.cardCalendar}>
         <Calendar

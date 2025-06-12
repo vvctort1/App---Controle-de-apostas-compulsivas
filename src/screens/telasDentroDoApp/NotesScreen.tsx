@@ -252,7 +252,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         left: "2%",
-        marginBottom: "5%"
+        marginBottom: "5%",
+        alignSelf: "flex-start"
     },
     checkboxText: {
         fontFamily: "Inter",

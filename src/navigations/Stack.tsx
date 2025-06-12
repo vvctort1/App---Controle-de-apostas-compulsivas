@@ -14,6 +14,7 @@ import Question5Screen from "../screens/telasQuestionarios/Question5Screen";
 import { Image, StyleSheet } from "react-native";
 import AutorizacaoScreen from "../screens/telasQuestionarios/AutorizacaoScreen";
 import CheckinScreen from "../screens/telasDentroDoApp/CheckinScreen";
+import ImpulsoScreen from "../screens/telasDentroDoApp/ImpulsoScreen";
 
 
 
@@ -62,6 +63,9 @@ const Stack = () => {
         }}/>
         <InternalStack.Screen name="CheckinScreen" component={CheckinScreen} options={{
           headerTitle: () => <Image source={require("../Images/logo.png")} style={styles.logo}/>, headerTitleAlign: "center"
+        }}/>
+        <InternalStack.Screen name="ImpulsoScreen" component={ImpulsoScreen} options={{
+          headerTitle: () => <Image source={require("../Images/logo.png")} style={styles.logo}/>, headerTitleAlign: "center", headerLeft: () => null
         }}/>
       </InternalStack.Navigator>
     )

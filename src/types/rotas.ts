@@ -15,6 +15,7 @@ export type RootStack = {
     ReadyScreen: {user: User};
     BottomT: {user: User};
     CheckinScreen: undefined;
+    ImpulsoScreen: undefined;
 }
 
 export type RootBottomTabs = {

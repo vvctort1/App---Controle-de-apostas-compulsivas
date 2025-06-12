@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         left: "14%",
         marginBottom: "5%",
+        alignSelf: "flex-start"
     },
     checkboxText: {
         fontFamily: "Inter",

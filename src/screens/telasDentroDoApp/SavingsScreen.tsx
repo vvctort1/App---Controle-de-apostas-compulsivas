@@ -7,7 +7,7 @@ import GradientWord from "../../gradient/GradientWord";
 
 const SavingsScreen = () => {
     return (
-        <LinearGradient style={styles.container} colors={["#90C56660", "#75B3726D"]} start={{ x: 0, y: 1 }} end={{ x: 1, y: 1 }}>
+        <LinearGradient style={styles.container} colors={['#BCE0514D', '#4DA7646E']} start={{ x: 0, y: 1 }} end={{ x: 1, y: 1 }}>
             <View style={styles.container2}></View>
             <View style={styles.cardEconomy}>
                 <Text style={styles.txtTitulo}>Economia total</Text>

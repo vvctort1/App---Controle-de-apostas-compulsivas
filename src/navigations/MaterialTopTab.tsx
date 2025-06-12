@@ -12,11 +12,13 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const TopTab = createMaterialTopTabNavigator<RootTopTabs>();
 
+// ['#BCE0514D', '#4DA7646E']
+
 const tabColors: Record<string, any> = {
-    Resumo: ['#BCE051', '#ABD75953'],
-    Calendário: ["#ABD75953", "#90C56660"],
-    Economias: ["#90C56660", "#75B3726D"],
-    Impulsos: ["#75B3726D", "#4DA7646E"]
+    Resumo: ['#BCE051', '#4DA7646E'],
+    Calendário: ["#4DA7646E", "#BCE0514D"],
+    Economias: ["#BCE0514D", "#4DA7646E"],
+    Impulsos: ["#4DA7646E", "#BCE0514D"]
 };
 
 function CustomTabBar(props: any) {
