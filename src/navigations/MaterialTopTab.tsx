@@ -12,7 +12,6 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const TopTab = createMaterialTopTabNavigator<RootTopTabs>();
 
-// ['#BCE0514D', '#4DA7646E']
 
 const tabColors: Record<string, any> = {
     Resumo: ['#BCE051', '#4DA7646E'],

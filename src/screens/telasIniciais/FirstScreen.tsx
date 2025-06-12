@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { StyleSheet, Text, View, Image, Pressable, TouchableOpacity } from "react-native"
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
 import { RootStack } from "../../types/rotas";
 import GradientWord from "../../gradient/GradientWord";
 import GradientButton from "../../gradient/GradientButton";

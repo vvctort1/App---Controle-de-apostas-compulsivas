@@ -1,8 +1,8 @@
-import { faImage, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
-import { FlatList, Image, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { FlatList, Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 import { Note } from "../../types/Notes";
 import GradientButton from "../../gradient/GradientButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
