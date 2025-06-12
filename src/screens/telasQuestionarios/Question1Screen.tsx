@@ -16,7 +16,6 @@ const Question1Screen = ({ navigation, route }: NativeStackScreenProps<RootStack
         { id: 1, label: "Observar meus hábitos", isChecked: false, color: "#1B1B1B" },
         { id: 2, label: "Reduzir frequência em apostas", isChecked: false, color: "#1B1B1B" },
         { id: 3, label: "Parar completamente de apostar", isChecked: false, color: "#1B1B1B" },
-        { id: 4, label: "Parar completamente de apostar", isChecked: false, color: "#1B1B1B" }
     ]);
 
     const toggleCheckbox = (id: number) => {
@@ -57,19 +56,19 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     text: {
-        fontFamily: "Patrick Hand",
-        fontSize: 26,
+        fontFamily: "Inter",
+        fontSize: 19,
         color: "1B1B1B",
         alignSelf: "center",
         top: "4%"
     },
     subText: {
-        fontFamily: "Patrick Hand",
-        fontSize: 17,
+        fontFamily: "Inter",
+        fontSize: 15,
         color: "#929292",
         left: "12%",
-        marginBottom: "15%",
-        top: "4%"
+        marginBottom: "20%",
+        top: "5%"
     },
     checkboxContainer: {
         flexDirection: "row",
@@ -78,12 +77,12 @@ const styles = StyleSheet.create({
         marginBottom: "5%"
     },
     checkboxText: {
-        fontFamily: "Patrick Hand",
-        fontSize: 22,
+        fontFamily: "Inter",
+        fontSize: 18,
         color: "1B1B1B"
     },
     btnContinuar: {
-        width: "85%",
+        width: "75%",
         marginTop: "144%",
         position: "absolute",
 

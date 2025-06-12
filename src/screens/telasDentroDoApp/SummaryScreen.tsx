@@ -4,15 +4,20 @@ import { useRoute } from "@react-navigation/native";
 import { User } from "../../types/User";
 import { LinearGradient } from "expo-linear-gradient";
 import GradientWord from "../../gradient/GradientWord";
+import { useState } from "react";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStack } from "../../types/rotas";
 
 
 
 
-const SummaryScreen = () => {
+const SummaryScreen = ({ navigation }:NativeStackScreenProps<RootStack>) => {
 
+    const [qtdDias, setQtdDias] = useState('5');
 
     const route = useRoute();
     const { user } = route.params as { user: User };
+
 
     return (
         <LinearGradient style={styles.container} colors={['#BCE0514D', '#ABD75953']} start={{ x: 0, y: 1 }} end={{ x: 1, y: 1 }}>
@@ -26,18 +31,18 @@ const SummaryScreen = () => {
                 </View>
                 <View style={styles.containerGradient}>
                     <Text style={styles.txtCard}>Você está a </Text>
-                    <GradientWord style={styles.txtCard}>XX</GradientWord>
+                    <GradientWord style={styles.txtCard}>{qtdDias}</GradientWord>
                     <Text style={styles.txtCard}> dias sem apostar.</Text>
                 </View>
                 <View style={styles.periodoContainer}>
                     <Image source={require("../../Images/calender.png")} />
-                    <Text style={styles.txtCardPeriodo}> 12/23 - 01/03</Text>
+                    <Text style={styles.txtCardPeriodo}>12/23 - 01/03</Text>
                 </View>
             </View>
             <View style={styles.container3}>
                 <View style={styles.container4}>
                     <View style={styles.containerIcone}>
-                        <TouchableOpacity style={{ alignItems: "center" }}>
+                        <TouchableOpacity style={{ alignItems: "center" }} onPress={() => navigation.navigate("CheckinScreen")}>
                             <Image source={require("../../Images/checkin.png")} />
                             <Text style={styles.txtIcon}>Check-in</Text>
                         </TouchableOpacity>
@@ -51,7 +56,7 @@ const SummaryScreen = () => {
                     </View>
                     <View style={styles.divisoria}></View>
                     <View style={styles.containerIcone}>
-                        <TouchableOpacity style={{ alignItems: "center" }}>
+                        <TouchableOpacity style={{ alignItems: "center" }} onPress={() => setQtdDias('0')}>
                             <Image source={require("../../Images/recomecar.png")}/>
                             <Text style={styles.txtIcon}>Recomeçar</Text>
                         </TouchableOpacity>
@@ -124,19 +129,21 @@ const styles = StyleSheet.create({
     titutoTxtCard: {
         fontFamily: "Inter",
         fontSize: 28,
-        marginBottom: "3%"
+        marginBottom: "2%"
     },
     txtCard: {
         fontFamily: "Inter",
-        fontSize: 18,
+        fontSize: 20,
         marginBottom: "7%"
     },
     periodoContainer: {
-        flexDirection: "row"
+        flexDirection: "row",
+        alignItems: "center"
     },
     txtCardPeriodo: {
         fontFamily: "Inter",
         fontSize: 14,
+        marginLeft: "2%"
     },
     txtIcon: {
         marginTop: "15%"

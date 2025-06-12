@@ -55,19 +55,19 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     text: {
-        fontFamily: "Patrick Hand",
-        fontSize: 26,
+        fontFamily: "Inter",
+        fontSize: 19,
         color: "1B1B1B",
         left: "12%",
         top: "4%"
     },
     subText: {
-        fontFamily: "Patrick Hand",
-        fontSize: 17,
+        fontFamily: "Inter",
+        fontSize: 15,
         color: "#929292",
         left: "12%",
         marginBottom: "15%",
-        top: "4%"
+        top: "5%"
     },
     checkboxContainer: {
         flexDirection: "row",
@@ -76,23 +76,23 @@ const styles = StyleSheet.create({
         marginBottom: "5%"
     },
     checkboxText: {
-        fontFamily: "Patrick Hand",
-        fontSize: 22,
+        fontFamily: "Inter",
+        fontSize: 18,
         color: "1B1B1B"
     },
     txtInputArea: {
         borderWidth: 2,
-        height: 120,
-        width: 270,
-        left: "18%",
+        height: "17%",
+        width: "65%",
+        left: "22%",
         borderColor: "#1B1B1B",
         borderRadius: 8,
-        fontFamily: "Patrick Hand",
-        fontSize: 20,
+        fontFamily: "Inter",
+        fontSize: 16,
         padding: 15
     },
     btnContinuar: {
-        width: "85%",
+        width: "75%",
         marginTop: "144%",
         position: "absolute",
     }

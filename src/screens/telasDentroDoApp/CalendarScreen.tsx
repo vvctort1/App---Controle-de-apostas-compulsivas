@@ -93,7 +93,7 @@ export default function CalendarScreen() {
           <Image source={require("../../Images/calender.png")} />
           <Text style={styles.periodo}>  08/01/25 - 29/01/25</Text>
         </View>
-        <Text style={styles.sequencia}>Sequência de 21 dias</Text>
+        <Text style={styles.sequencia}>Sequência de 22 dias</Text>
         <View style={styles.dividerContainer}>
           <View style={styles.divider3} />
           <View style={styles.divider4} />

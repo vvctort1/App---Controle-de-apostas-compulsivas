@@ -76,16 +76,16 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     text: {
-        fontFamily: "Patrick Hand",
-        fontSize: 26,
+        fontFamily: "Inter",
+        fontSize: 19,
         color: "1B1B1B",
         alignSelf: "center",
         marginBottom: "15%",
         top: "4%"
     },
     text2:{
-        fontFamily: "Patrick Hand",
-        fontSize: 26,
+        fontFamily: "Inter",
+        fontSize: 19,
         color: "1B1B1B",
         alignSelf: "center",
         top: "5%"
@@ -97,13 +97,13 @@ const styles = StyleSheet.create({
         marginBottom: "5%",
     },
     checkboxText: {
-        fontFamily: "Patrick Hand",
-        fontSize: 22,
+        fontFamily: "Inter",
+        fontSize: 18,
         color: "1B1B1B"
     },
     countContainer: {
         flexDirection: "row",
-        marginTop: "15%",
+        marginTop: "19%",
         alignItems: "center",
         justifyContent: "center"
     },
@@ -118,13 +118,14 @@ const styles = StyleSheet.create({
     textCountButton:{
         fontSize: 54,
         marginHorizontal: "15%",
-        fontFamily: "Patrick Hand"
+        fontFamily: "Inter",
+        fontWeight: 700
     },
     symbolCountButton: {
         fontWeight: "bold",
     },
     btnContinuar: {
-        width: "85%",
+        width: "75%",
         marginTop: "144%",
         position: "absolute",
     }

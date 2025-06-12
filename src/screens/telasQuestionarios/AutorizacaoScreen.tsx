@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     img: {
         alignSelf: "center",
         marginTop: "30%",
-        marginBottom: "10%",
+        marginBottom: "6%",
         height: "7%",
         width: "13%"
     },
@@ -42,10 +42,11 @@ const styles = StyleSheet.create({
     },
     img2: {
         alignSelf: "center",
-        marginTop: "10%"
+        marginTop: "12%",
+        width: "86%"
     },
     btnContinuar: {
-        width: "85%",
+        width: "90%",
         marginTop: "170%",
         position: "absolute",
     }

@@ -50,23 +50,24 @@ const styles = StyleSheet.create({
         backgroundColor: "white"
     },
     txt: {
-        fontFamily: "Patrick Hand",
-        fontSize: 26,
+        fontFamily: "Inter",
+        fontSize: 19,
         top: "4%",
         marginBottom: "20%"
     },
     txtInput:{
-        width: 260,
+        width: "70%",
         height: 48,
         borderWidth: 2,
         borderColor: "#1B1B1B",
         borderRadius: 8,
-        fontFamily: "Patrick Hand",
+        fontFamily: "Inter",
         fontSize: 18,
-        paddingLeft: "4%"
+        paddingLeft: "4%",
+        color: "#1B1B1B"
     },
     btnContinuar: {
-        width: "85%",
+        width: "75%",
         marginTop: "144%",
         position: "absolute",
     }

@@ -1,25 +1,139 @@
-import { faImage } from "@fortawesome/free-solid-svg-icons";
+import { faImage, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { LinearGradient } from "expo-linear-gradient";
+import { useState } from "react";
+import { FlatList, Image, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Note } from "../../types/Notes";
+import GradientButton from "../../gradient/GradientButton";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 
 
 const NotesScreen = () => {
-    return(
+
+    const [modalVisible, setModalVisible] = useState(false);
+    const [anotacao, setAnotacao] = useState("");
+    const [categoria, setCategoria] = useState("");
+    const [notes, setNotes] = useState<Note[]>([]);
+
+
+    const [checkboxes, setCheckboxes] = useState([
+        { id: 1, label: "Impulsos", isChecked: false, color: "#1B1B1B" },
+        { id: 2, label: "Vitória", isChecked: false, color: "#1B1B1B" },
+        { id: 3, label: "Recaída", isChecked: false, color: "#1B1B1B" },
+        { id: 4, label: "Reflexão livre", isChecked: false, color: "#1B1B1B" },
+    ]);
+
+    const toggleCheckbox = (id: number) => {
+        setCheckboxes((prevCheckboxes) =>
+            prevCheckboxes.map((checkbox) => ({
+                ...checkbox,
+                isChecked: checkbox.id === id
+            }))
+        );
+        const selected = checkboxes.find((checkbox) => checkbox.id === id);
+        if (selected) {
+            setCategoria(selected.label)
+        }
+    }
+
+    const addNote = () => {
+        if (!anotacao.trim() || !categoria.trim()) return alert("Existem campos não preenchidos");
+
+        const newNote: Note = {
+            categoria: categoria.trim(),
+            anotacao: anotacao.trim(),
+        }
+
+        setNotes([...notes, newNote]);
+        setModalVisible(!modalVisible);
+
+    }
+
+    const removeNote = (indexToRemove: number) => {
+        setNotes((prevNotes) => prevNotes.filter((_, index) => index !== indexToRemove));
+    };
+
+
+    const novaAnotacao = () => {
+        setModalVisible(!modalVisible);
+        setAnotacao("");
+        setCategoria("");
+        setCheckboxes((prevCheckboxes) =>
+            prevCheckboxes.map((checkbox) => ({
+                ...checkbox,
+                isChecked: false,
+            }))
+        );
+    }
+
+    return (
+
         <View style={styles.container}>
-            <Text style={styles.txtTitulo1}>Escrever nova entrada</Text>
-            <TextInput style={styles.txtInput}/>
-            <TouchableOpacity style={styles.btn}>
-                <Text style={styles.txtBtn}>Button</Text>
-            </TouchableOpacity>
-            <Text style={styles.txtTitulo2}>Minhas razões para parar</Text>
-            <View style={styles.galery}>
-                <View style={styles.foto1}><FontAwesomeIcon icon={faImage}/></View>
-                <View style={styles.fotos2e3container}>
-                    <View style={styles.foto2}><FontAwesomeIcon icon={faImage}/></View>
-                    <View style={styles.foto3}><FontAwesomeIcon icon={faImage}/></View>
+
+            <Text style={styles.txtTitulo1}>Minhas anotações</Text>
+            <FlatList
+                data={notes}
+                keyExtractor={(item, index) => index.toString()}
+                contentContainerStyle={{ paddingBottom: 100 }} // espaço extra para rolar até o final
+                renderItem={({ item, index }) => (
+                    <View style={styles.cardNote}>
+                        <View style={styles.txtContainer}>
+                            <Text style={styles.txtCategoria}>{item.categoria}</Text>
+                            <Text style={styles.txtAnotacao}>{item.anotacao}</Text>
+                        </View>
+                        <TouchableOpacity onPress={() => removeNote(index)}>
+                            <FontAwesomeIcon icon={faTrash} />
+                        </TouchableOpacity>
+                    </View>
+                )}
+            />
+
+            <LinearGradient
+                colors={['#BCE051', '#4DA764']}
+                start={{ x: 0, y: 1 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.gradient}>
+                <TouchableOpacity style={styles.touchable} onPress={novaAnotacao}>
+                    <Image source={require("../../Images/plus.png")} />
+                </TouchableOpacity>
+            </LinearGradient>
+            <Modal animationType="fade" transparent={true} visible={modalVisible} navigationBarTranslucent={true} statusBarTranslucent={true}>
+                <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                        <View style={styles.headerModalContainer}>
+                            <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
+                                <Image source={require("../../Images/seta.png")} />
+                            </TouchableOpacity>
+                            <Text style={styles.txtModalTitulo}>Nova anotação</Text>
+                        </View>
+                        <TextInput
+                            multiline={true}
+                            placeholder="Escreva sobre o que está sentindo, o que aconteceu hoje, ou algo que quer lembrar..."
+                            style={styles.txtModalInputArea}
+                            numberOfLines={3}
+                            textAlignVertical="top"
+                            onChangeText={setAnotacao}
+                        />
+                        <Text style={styles.txtModalTitulo2}>Categoria:</Text>
+                        {checkboxes.map((checkboxes) => (
+                            <TouchableOpacity
+                                key={checkboxes.id}
+                                style={styles.checkboxContainer}
+                                onPress={() => toggleCheckbox(checkboxes.id)}
+                            >
+                                <MaterialCommunityIcons
+                                    name={checkboxes.isChecked ? 'checkbox-marked-outline' : 'checkbox-blank-outline'}
+                                    size={24}
+                                    color={checkboxes.isChecked ? checkboxes.color : '#1B1B1B'}
+                                />
+                                <Text style={styles.checkboxText}>  {checkboxes.label}</Text>
+                            </TouchableOpacity>
+                        ))}
+                        <GradientButton title="Salvar" onPress={addNote} style={styles.buttonModalSalvar} />
+                    </View>
                 </View>
-            </View>
+            </Modal>
         </View>
     )
 }
@@ -30,74 +144,127 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFF",
     },
     txtTitulo1: {
-        fontFamily: "Patrick Hand",
-        fontSize: 28,
+        fontFamily: "Inter",
+        fontSize: 24,
+        fontWeight: 800,
         marginLeft: "6%",
-        marginTop: "40%"
+        marginTop: "10%",
+        marginBottom: "5%"
     },
-    txtTitulo2: {   
-        fontFamily: "Patrick Hand",
-        fontSize: 28,
-        marginLeft: "6%",
-        marginTop: "9%"
-    },
-    txtInput: {
-        borderWidth: 3,
-        borderColor: "#1B1B1B",
-        marginHorizontal: "6%",
-        borderRadius: 8,
-        marginTop: "4%",
-        height: 48
-    },
-    btn: {
-        backgroundColor: "#1B1B1B",
-        borderRadius: 8,
-        height: 52,
-        marginHorizontal: "6%",
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: "4%"
-    },
-    txtBtn: {
-        color: "#FFF",
-        fontSize: 22,
-        fontFamily: "Patrick Hand"
-    },
-    galery:{
+    cardNote: {
         alignSelf: "center",
+        alignItems: "center",
+        justifyContent: "space-between",
         width: "90%",
-        height: "43%",
-        alignItems: 'center',
+        borderColor: "transparent",
+        elevation: 8,
+        borderRadius: 12,
+        backgroundColor: "#FFF",
+        marginTop: "6%",
+        padding: "3%",
         flexDirection: "row"
     },
-    foto1: {
-        backgroundColor: "#EEE",
-        width: "46%",
-        height: "90%",
-        marginHorizontal: "2%",
-        alignItems: "center",
+    txtContainer: {
+        width: "90%"
+    },
+    txtCategoria: {
+        fontSize: 14,
+        fontFamily: "Inter",
+        marginLeft: "5%",
+        marginBottom: "2%"
+
+    },
+    txtAnotacao: {
+        fontSize: 14,
+        fontFamily: "Inter",
+        fontStyle: "italic",
+        marginLeft: "5%"
+    },
+    gradient: {
+        height: "8%",
+        width: "15%",
+        borderRadius: 50,
+        marginLeft: "80%",
+        marginTop: "160%",
+        backgroundColor: "transparent",
+        position: "absolute",
+        zIndex: 1
+    },
+    touchable: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100%',
+        width: '100%'
+    },
+    centeredView: {
+        flex: 1,
+        backgroundColor: "rgba(0,0,0,0.5)",
         justifyContent: "center"
     },
-    fotos2e3container:{
-        height: "100%",
-        width: "50%",
-        alignItems: "center",
-        justifyContent: "space-around"
+    modalView: {
+        width: "92%",
+        height: "65%",
+        alignSelf: "center",
+        backgroundColor: '#fff',
+        borderRadius: 12,
+        padding: 35,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 30,
+            height: 40,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 100,
     },
-    foto2:{
-        backgroundColor: "#EEE",
-        width: "90%",
-        height: "40%",
+    headerModalContainer: {
+        flexDirection: "row",
+        width: "100%",
         alignItems: "center",
-        justifyContent: "center"
+        marginBottom: "7%"
     },
-    foto3: {
-        backgroundColor: "#EEE",
-        width: "90%",
-        height: "40%",
+    txtModalTitulo: {
+        fontFamily: "Inter",
+        fontWeight: 700,
+        fontSize: 22,
+        marginLeft: "4%",
+    },
+    txtModalTitulo2: {
+        fontFamily: "Inter",
+        fontWeight: 700,
+        fontSize: 22,
+        marginLeft: "2%",
+        marginTop: "10%",
+        marginBottom: "8%"
+    },
+    txtModalInputArea: {
+        borderWidth: 2,
+        height: "27%",
+        width: "100%",
+        borderColor: "#1B1B1B",
+        borderRadius: 8,
+        fontFamily: "Inter",
+        fontSize: 17,
+        padding: 15,
+        alignSelf: "center"
+    },
+    checkboxContainer: {
+        flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center"
-    }
+        left: "2%",
+        marginBottom: "5%"
+    },
+    checkboxText: {
+        fontFamily: "Inter",
+        fontSize: 16,
+        color: "1B1B1B"
+    },
+    buttonModalSalvar: {
+        height: "10%",
+        width: "100%",
+        elevation: 6,
+        marginTop: "10%"
+    },
 })
 
 export default NotesScreen;

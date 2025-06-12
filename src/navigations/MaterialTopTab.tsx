@@ -13,10 +13,10 @@ import { LinearGradient } from "expo-linear-gradient";
 const TopTab = createMaterialTopTabNavigator<RootTopTabs>();
 
 const tabColors: Record<string, any> = {
-    Summary: ['#BCE051', '#ABD75953'],
-    Calendar: ["#ABD75953", "#90C56660"],
-    Savings: ["#90C56660", "#75B3726D"],
-    Urges: ["#75B3726D", "#4DA7646E"]
+    Resumo: ['#BCE051', '#ABD75953'],
+    Calendário: ["#ABD75953", "#90C56660"],
+    Economias: ["#90C56660", "#75B3726D"],
+    Impulsos: ["#75B3726D", "#4DA7646E"]
 };
 
 function CustomTabBar(props: any) {
@@ -42,7 +42,7 @@ const MaterialTopTab = () => {
 
     return (
         <TopTab.Navigator 
-            initialRouteName="Summary" 
+            initialRouteName="Resumo" 
             tabBar={(props) => <CustomTabBar {...props} />}
             screenOptions={{
                 tabBarLabelStyle: { fontFamily: "Inter", fontSize: 13 },
@@ -50,10 +50,10 @@ const MaterialTopTab = () => {
                 tabBarStyle: { backgroundColor: "transparent", elevation: 0 }
             }}
         >
-            <TopTab.Screen name="Summary" component={SummaryScreen} initialParams={{ user: user }} />
-            <TopTab.Screen name="Calendar" component={CalendarScreen} />
-            <TopTab.Screen name="Savings" component={SavingsScreen} />
-            <TopTab.Screen name="Urges" component={UrgesScreen} />
+            <TopTab.Screen name="Resumo" component={SummaryScreen} initialParams={{ user: user }} />
+            <TopTab.Screen name="Calendário" component={CalendarScreen} />
+            <TopTab.Screen name="Economias" component={SavingsScreen} />
+            <TopTab.Screen name="Impulsos" component={UrgesScreen} />
         </TopTab.Navigator>
     )
 }

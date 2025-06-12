@@ -44,8 +44,8 @@ const BottomTabs = () => {
                 headerTitle: "",
                 tabBarLabelStyle: { fontFamily: "Patrick Hand", fontSize: 14 },
                 tabBarActiveTintColor: "#1B1B1B",
-                headerLeft: ()=> <Image source={require("../Images/logo.png")} style={{height: "45%", width: "20%", marginLeft: "13%"}}/>,
-                headerRight: () => (<TouchableOpacity><Image source={require("../Images/setting.png")} style={{marginRight: "18%", height: "42%", width: "55%"}}/></TouchableOpacity>)
+                headerLeft: ()=> <Image source={require("../Images/logo.png")} style={{height: "30%", width: "15%", marginLeft: "13%"}}/>,
+                headerRight: () => (<TouchableOpacity><Image source={require("../Images/setting.png")} style={{marginRight: "18%", height: "35%", width: "45%"}}/></TouchableOpacity>)
             }}>
                 <Tab.Screen name="Home" component={MaterialTopTab} initialParams={{user: user}} options={{
                     tabBarIcon: ({ color, size }) => (

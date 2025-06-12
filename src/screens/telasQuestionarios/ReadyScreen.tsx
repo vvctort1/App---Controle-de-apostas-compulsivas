@@ -10,7 +10,7 @@ const ReadyScreen = ({ navigation, route }: NativeStackScreenProps<RootStack, "R
     const { user } = route.params;
 
     return (
-        <View style={{ flex: 1, alignItems: "center"}}>
+        <View style={{ flex: 1}}>
             <Image source={require("../../Images/logo.png")} style={styles.img}/>
             <View style={styles.viewGradient}>
                 <GradientWord style={styles.txt}>TUDO PRONTO!</GradientWord>
@@ -22,9 +22,9 @@ const ReadyScreen = ({ navigation, route }: NativeStackScreenProps<RootStack, "R
             </View>
             <View style={styles.viewGradient}>
                 <GradientWord style={styles.txt}>VOCÊ </GradientWord>
-                <Text style={styles.txt}>A CADA PASSO, UM DIA</Text>
+                <Text style={styles.txt}>A CADA PASSO. UM DIA</Text>
             </View>
-            <Text style={styles.txt}>DE CADA VEZ.</Text>
+            <Text style={styles.txt2}>DE CADA VEZ.</Text>
             <Image source={require("../../Images/botas.png")} style={styles.img1} />
             <GradientButton title="Ir para o app" onPress={() => navigation.navigate("BottomT", {user: user})} style={styles.btn}/>
         </View>
@@ -37,22 +37,32 @@ const styles = StyleSheet.create({
         fontFamily: "Inter",
         fontSize: 19,
         fontWeight: 800,
+        alignSelf: "center"
+    },
+    txt2:{
+        fontFamily: "Inter",
+        fontSize: 19,
+        fontWeight: 800,
+        marginLeft: "20%"
     },
     img: {
         marginTop: "25%",
-        marginBottom: "25%"
+        marginBottom: "22%",
+        alignSelf: "center"
     },
     viewGradient: {
-        flexDirection: "row"
+        flexDirection: "row",
+        marginLeft: "20%"
     },
     img1: {
-        width: "40%",
-        height: "40%",
+        width: "50%",
+        height: "43%",
         alignSelf: "center",
     },
     btn:{
         position: "absolute",
-        marginTop: "175%"
+        marginTop: "175%",
+        width: "90%"
     }
 })
 

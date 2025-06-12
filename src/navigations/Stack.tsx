@@ -11,8 +11,9 @@ import Question1Screen from "../screens/telasQuestionarios/Question1Screen";
 import Question3Screen from "../screens/telasQuestionarios/Question3Screen";
 import Question4Screen from "../screens/telasQuestionarios/Question4Screen";
 import Question5Screen from "../screens/telasQuestionarios/Question5Screen";
-import { Image } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import AutorizacaoScreen from "../screens/telasQuestionarios/AutorizacaoScreen";
+import CheckinScreen from "../screens/telasDentroDoApp/CheckinScreen";
 
 
 
@@ -36,19 +37,19 @@ const Stack = () => {
           {headerShown: false}
         }/>
         <InternalStack.Screen name="Question1Screen" component={Question1Screen} options={{
-          headerTitle: () => <Image source={require("../Images/logo.png")}/>, headerTitleAlign: "center"
+          headerTitle: () => <Image source={require("../Images/logo.png")} style={styles.logo}/>, headerTitleAlign: "center"
         }}/>
         <InternalStack.Screen name="Question2Screen" component={Question2Screen} options={{
-          headerTitle: () => <Image source={require("../Images/logo.png")}/>, headerTitleAlign: "center"
+          headerTitle: () => <Image source={require("../Images/logo.png")} style={styles.logo}/>, headerTitleAlign: "center"
         }}/>
         <InternalStack.Screen name="Question3Screen" component={Question3Screen} options={{
-          headerTitle: () => <Image source={require("../Images/logo.png")}/>, headerTitleAlign: "center"
+          headerTitle: () => <Image source={require("../Images/logo.png")} style={styles.logo}/>, headerTitleAlign: "center"
         }}/>
         <InternalStack.Screen name="Question4Screen" component={Question4Screen} options={{
-          headerTitle: () => <Image source={require("../Images/logo.png")}/>, headerTitleAlign: "center"
+          headerTitle: () => <Image source={require("../Images/logo.png")} style={styles.logo}/>, headerTitleAlign: "center"
         }}/>
         <InternalStack.Screen name="Question5Screen" component={Question5Screen} options={{
-          headerTitle: () => <Image source={require("../Images/logo.png")}/>, headerTitleAlign: "center"
+          headerTitle: () => <Image source={require("../Images/logo.png")} style={styles.logo}/>, headerTitleAlign: "center"
         }}/>
         <InternalStack.Screen name="AutorizacaoScreen" component={AutorizacaoScreen} options={{
           headerShown: false
@@ -59,8 +60,18 @@ const Stack = () => {
         <InternalStack.Screen name="BottomT" component={BottomTabs} options={{
           headerShown: false
         }}/>
+        <InternalStack.Screen name="CheckinScreen" component={CheckinScreen} options={{
+          headerTitle: () => <Image source={require("../Images/logo.png")} style={styles.logo}/>, headerTitleAlign: "center"
+        }}/>
       </InternalStack.Navigator>
     )
 }
+
+const styles = StyleSheet.create({
+  logo: {
+    height: "34%",
+    width: 20
+  }
+})
 
 export default Stack;

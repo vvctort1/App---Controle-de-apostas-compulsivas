@@ -15,14 +15,14 @@ const IntroScreen = ({ navigation, route }: NativeStackScreenProps<RootStack,"In
             <Image source={require("../../Images/logo.png")} style={styles.img0}/>
             <Text style={styles.txt1}>VOCÊ ESTÁ PRONTO PARA COMEÇAR</Text>
             <View style={styles.viewGradient}>
-                <Text style={styles.txt1}> UMA </Text>
-                <GradientWord style={styles.txt1}>NOVA FASE</GradientWord>
-                <Text style={styles.txt1}>. VAMOS ENTENDER </Text>
+                <Text style={styles.txt2}> UMA </Text>
+                <GradientWord style={styles.txt2}>NOVA FASE</GradientWord>
+                <Text style={styles.txt2}>. VAMOS ENTENDER </Text>
             </View>
             <View style={styles.viewGradient}>
-                <Text style={styles.txt1}>COMO PODEMOS TE</Text>
-                <GradientWord style={styles.txt1}> APOIAR </GradientWord>
-                <Text style={styles.txt1}>MELHOR.</Text>
+                <Text style={styles.txt2}>COMO PODEMOS TE</Text>
+                <GradientWord style={styles.txt2}> APOIAR </GradientWord>
+                <Text style={styles.txt2}>MELHOR.</Text>
             </View>
             <Image source={require("../../Images/placa.png")} style={styles.img}/>
             <GradientButton title="Continuar" onPress={() => navigation.navigate("Question1Screen", {user:user})} style={styles.btnContinuar}/>
@@ -34,19 +34,26 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
-        alignItems: "center"
     },
     img0: {
         marginTop: "18%",
-        marginBottom: "20%"
+        marginBottom: "20%",
+        alignSelf: "center"
     },
     viewGradient: {
-        flexDirection: "row"
+        flexDirection: "row",
+        marginLeft: "7%"
     },
     txt1: {
         fontFamily: "Inter",
         fontWeight: 800,
-        fontSize: 18
+        fontSize: 20,
+        marginLeft: "7%"
+    },
+    txt2:{
+        fontFamily: "Inter",
+        fontWeight: 800,
+        fontSize: 20
     },
     img: {
         width: "80%",

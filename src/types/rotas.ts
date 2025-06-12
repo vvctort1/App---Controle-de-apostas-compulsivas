@@ -14,6 +14,7 @@ export type RootStack = {
     AutorizacaoScreen: {user: User};
     ReadyScreen: {user: User};
     BottomT: {user: User};
+    CheckinScreen: undefined;
 }
 
 export type RootBottomTabs = {
@@ -24,8 +25,8 @@ export type RootBottomTabs = {
 
 
 export type RootTopTabs = {
-    Summary: {user: User};
-    Calendar: undefined;
-    Savings: undefined;
-    Urges: undefined;
+    Resumo: {user: User};
+    Calendário: undefined;
+    Economias: undefined;
+    Impulsos: undefined;
 }
