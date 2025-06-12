@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     },
     img:{
         alignSelf: "center",
-        marginTop: "23%"
+        marginTop: "21%"
     },
     container2: {
         top: "5%"
